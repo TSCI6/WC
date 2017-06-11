@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>ShowContacts</title>
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<link rel="icon" href="images\vector_business_people_circle.png">
+<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/lib/ionicons.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/imgDisplay.css">
+<link rel="stylesheet" href="css/lib/skin-blue.min.css">
+<link rel="stylesheet" href="css/lib/jquery-datatable.min.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini"
+	onload="viewUserName();">
+	<div class="wrapper">
+		<header class="main-header">
+			<a href="index.html" class="logo"> <span class="logo-mini">
+					<b>W </b>C
+			</span> <span class="logo-lg"> <b>Which </b>Contact
+			</span>
+			</a>
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+					role="button"> <span class="sr-only">Toggle navigation </span>
+				</a>
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- Messages: style can be found in dropdown.less-->
+						<!-- User Account Menu -->
+						<li class="dropdown user user-menu"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"> <span
+								class="glyphicon glyphicon-user"></span> <span class="hidden-xs"
+								id="username"> </span>
+						</a>
+							<div class="dropdown-content">
+								<a href="EditProfile.html">Edit Profile </a> <a href="# "
+									onclick="logoutuser()">Log Out </a>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+				<!-- search form (Optional) -->
+				<form action="#" method="get" class="sidebar-form">
+					<div class="input-group">
+						<input type="text" name="q" class="form-control"
+							placeholder="Search..."> <span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn"
+								class="btn btn-flat">
+								<i class="fa fa-search"> </i>
+							</button>
+						</span>
+					</div>
+				</form>
+				<!-- /.search form -->
+				<!-- Sidebar Menu -->
+				<ul class="sidebar-menu">
+					<li class="active"><a href="TopCompanies.html"> <i
+							class="fa fa-home"> </i> <span>Home </span>
+					</a></li>
+					<li class="treeview"><a href="UploadContacts.html"> <i
+							class="fa fa-book"> </i> <span>Contacts </span> <span
+							class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"> </i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li><a href="UploadContacts.html">Upload Contacts </a></li>
+							<li><a href="ShowContacts.html">Show Contacts </a></li>
+							<li><a href="SearchContacts.html">Search Contacts </a></li>
+						</ul></li>
+
+					<li class="treeview"><a href="Companies.html"> <i
+							class="fa fa-briefcase"> </i> <span>Companies </span> <span
+							class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"> </i>
+						</span>
+					</a></li>
+					<li class="treeview"><a href="#"> <i class="fa fa-upload">
+						</i> <span>Upload CSV </span> <span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"> </i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<div class="fileinput fileinput-new" data-provides="fileinput">
+								<span class="btn btn-default btn-file"> <span>Choose
+										file </span> <input type="file" accept=".csv" />
+								</span> <span class="fileinput-filename"> </span> <span
+									class="fileinput-new">No file chosen </span>
+							</div>
+						</ul></li>
+				</ul>
+				<!-- /.sidebar-menu -->
+			</section>
+			<!-- /.sidebar -->
+		</aside>
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header"></section>
+			<!-- Main content -->
+			<section class="content">
+
+
+
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<h1>Show Contacts</h1>
+						<form>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<span class="glyphicon glyphicon-envelope"> </span>
+									</div>
+									<input type="email" name="mailId" placeholder="MAIL-ID"
+										class="form-control" id="email" >
+								</div>
+							</div>
+						</form>
+						<button type="button" class="btn btn-primary" onclick="auth();">GET
+							CONTACTS</button>
+					</div>
+				</div>
+
+				<div id="status"></div>
+				<div class="buttons">
+					<button class="list-view on" onclick="listv();">
+						<i class="fa fa-bars"></i>
+					</button>List View -- Grid View
+					<button class="grid-view" onclick="auth();">
+						<i class="fa fa-th"></i>
+					</button>
+				</div>
+				<div class="wrapper list"></div>
+
+				<div id="contact"></div>
+				<div id="pageButtons">
+				<button type="button" id="prev" class="btn btn-primary gridView"
+						onclick="PrevPage();">PREV 20 CONTACTS</button>
+					<button type="button" id="next" class="btn btn-primary gridView"
+						onclick="NextPage();">NEXT 20 CONTACTS</button>
+				</div>
+				<br><br><br>
+				<table class="table table-bordered table-hover table-striped" id="contactsTable">
+					<thead>
+						<tr class="danger">
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Mobile</th>
+							<th>E-Mail
+							<th>Company</th>
+							<th>Designation</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+
+
+
+
+
+
+
+
+
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<div class="pull-right">
+				<span id="develop">Web site developed by <a
+					class="footer-link" href="http://www.fonantrix.com/">FonantrixSolutions
+				</a>
+				</span> <br />
+			</div>
+			<strong>Copyright &copy; 2017 . </strong> All rights reserved.
+		</footer>
+		<!-- REQUIRED JS SCRIPTS -->
+		<script src="js/lib/jquery-1.11.2.js">
+			
+		</script>
+		<script src="js/lib/bootstrap.min.js">
+			
+		</script>
+		<script src="js/lib/app.min.js">
+			
+		</script>
+		<script src="js/editProfile.js">
+			
+		</script>
+		<script src="js/logout.js">
+			
+		</script>
+
+
+		<script src="js/viewUserName.js">
+			
+		</script>
+		<script src="js/contacts.js">
+			
+		</script>
+
+		<script src="https://apis.google.com/js/client.js">
+			
+		</script>
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+			
+		</script>
+		<script src="js/lib/jquery_datatable1.10.15.js">
+  </script>
+  <script src="js/lib/dataTables.bootstrap.min.js">
+  </script>
+</body>
+</html>

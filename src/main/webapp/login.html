@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WhichContacts</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css\lib\bootstrap.min.css">
+<link rel="stylesheet" href="css\login-Register.css">
+<link rel="stylesheet" href="css\modal.css">
+<link rel="stylesheet" href="css\button.css">
+<script src="js/lib/jquery-1.11.2.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<center>
+			<h1>Which-Contact</h1>
+		</center>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="#" role="form"
+									style="display: block;">
+									<div class="form-group">
+										<input type="text" name="username" id="nam" tabindex="1"
+											class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="pass" tabindex="2"
+											class="form-control" placeholder="Password">
+									</div>
+
+									<div id="response"></div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login"
+													tabindex="4" class="form-control btn btn-login"
+													value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="#" data-toggle="modal" data-target="#forgetModal">Forget
+														Password?</a>
+												</div>
+												<div class="modal fade" id="forgetModal" role="dialog">
+													<div class="modal-dialog">
+														<!-- Modal content-->
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal">&times;</button>
+																<h4 class="modal-title">Password Recovery Form</h4>
+															</div>
+															<div class="modal-body">
+																<form>
+																	<div class="form-group">
+																		<label for="Email">Enter Your Registered
+																			Email-Address:</label> <input type="text"
+																			class="form-control" id="email"
+																			placeholder="Enter your email"> <span
+																			id="authenicateEmail" class="span-style"></span>
+																	</div>
+
+																	<button type="submit" class="btn btn-primary"
+																		id="forgetPass">Submit</button>
+																</form>
+
+																<div id="emailResponse"></div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-deafult"
+																	data-dismiss="modal">Close</button>
+															</div>
+														</div>
+
+													</div>
+												</div>
+
+
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="#" method="post" role="form"
+									style="display: none;">
+									<span id="validuser" class="span-style"></span>
+									<div class="form-group">
+										<input type="text" name="username" id="user" tabindex="1"
+											class="form-control" placeholder="Username" value="">
+									</div>
+									<span id="validMail" class="span-style"></span>
+									<div class="form-group">
+										<input type="email" name="email" id="useremail" tabindex="1"
+											class="form-control" placeholder="Email Address" value="">
+									</div>
+									<span id="userpass" class="span-style"></span>
+									<div class="form-group">
+										<input type="password" name="password" id="firstPassword"
+											tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<span id="cnfrmpass" class="span-style"></span>
+									<div class="form-group">
+										<input type="password" name="confirm-password"
+											id="repeatpasword" tabindex="2" class="form-control"
+											placeholder="Confirm Password">
+									</div>
+									<span id="comp" class="span-style"></span>
+									<div class="form-group">
+										<input type="text" name="company-name" id="userCompany"
+											tabindex="2" class="form-control" placeholder="Company-Name">
+									</div>
+									<span id="pos" class="span-style"></span>
+									<div class="form-group">
+										<input type="text" name="designation" id="userDesignation"
+											tabindex="2" class="form-control" placeholder="Designation">
+									</div>
+									<div id="error" class="span-style"></div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="signupForm"
+													onClick="store()" tabindex="4"
+													class="form-control btn btn-register" value="Register Now">
+											</div>
+
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js\login-Register.js"></script>
+	<script src="js\User_login-Register.js"></script>
+	<script src="js\background-Image.js"></script>
+	<script src="js\forgetPassword.js"></script>
+	<script src="js\Reg_Validate.js"></script>
+</body>
+</html>

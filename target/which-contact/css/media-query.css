@@ -1,0 +1,40 @@
+ /* On small screens */
+@media screen and (max-width: 767px) 
+	{
+		.sidenav {
+			height: auto;
+			padding: 15px;
+		}
+	  
+		.row.content {height:auto;}
+		#chartContainer { 
+		height: 60%;
+		width: 100%; 
+		}
+		
+		#logo {
+	   height: 30px;
+	   width: 20px;
+		}
+   
+		option {
+		height: 80px;
+		width: 70px;
+		}
+		
+		.sidenav {
+			height: 42% !important;
+		}
+   
+		.btn {
+			padding: 8px 10px;
+			font-size: 10px;
+			border-radius: 4px;
+		}
+		
+		footer {
+			position:fixed !important;
+			bottom: 0px;
+			
+		}
+    }

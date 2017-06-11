@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard
+    </title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="images\vector_business_people_circle.png">
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/lib/ionicons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/lib/skin-blue.min.css">
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini" onload="checkLogin();viewUser();viewUserName();">
+    <div class="wrapper">
+      <header class="main-header">
+        <a href="index2.html" class="logo">
+          <span class="logo-mini">
+            <b>W
+            </b>C
+          </span>
+          <span class="logo-lg">
+            <b>Which
+            </b>Contact
+          </span>
+        </a>
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation
+            </span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 <span class="glyphicon glyphicon-user"></span>
+                  <span class="hidden-xs" id="username">
+                  </span>
+                </a>
+                <div class="dropdown-content">
+                  <a href="# " onclick="logoutuser()">Log Out
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- search form (Optional) -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                  <i class="fa fa-search">
+                  </i>
+                </button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="active">
+              <a href="TopCompanies.html">
+                <i class="fa fa-home">
+                </i> 
+                <span>Home
+                </span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="UploadContacts.html">
+                <i class="fa fa-book">
+                </i>
+                <span>Contacts
+                </span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right">
+                  </i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="UploadContacts.html">Upload Contacts
+                  </a>
+                </li>
+                <li>
+                  <a href="ShowContacts.html">Show Contacts
+                  </a>
+                </li>
+                 <li>
+                  <a href="SearchContacts.html">Search Contacts
+                  </a>
+                </li>
+              </ul>
+            </li>
+           
+            <li class="treeview">
+              <a href="Companies.html">
+                <i class="fa fa-briefcase">
+                </i> 
+                <span>Companies
+                </span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right">
+                  </i>
+                </span>
+              </a>
+            
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-upload">
+                </i> 
+                <span>Upload CSV
+                </span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right">
+                  </i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <span class="btn btn-default btn-file">
+                    <span>Choose file
+                    </span>
+                    <input type="file" accept=".csv"/>
+                  </span>
+                  <span class="fileinput-filename">
+                  </span>
+                  <span class="fileinput-new">No file chosen
+                  </span>
+                </div>
+              </ul>
+            </li>
+          </ul>
+          <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+        </section>
+        <!-- Main content -->
+        <section class="content">
+          <div class="well well-sm">
+            <center>
+              <h4>Edit Your Profile
+              </h4>
+            </center>
+          </div>
+          <div class="row">
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <!--User Image-->
+                  <form method="post" enctype="multipart/form-data">
+                    <div class="text-center">
+                      <div class="panel panel-success">
+                        <div class="panel-body">
+                          <img id="img-upload" class="avatar img-circle img-thumbnail" width="304" height="304" alt="User-Icon">
+                          <h6>Upload a different photo...
+                          </h6>
+                          <input type="file" id="imgInp" class="text-center center-block well well-sm" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <button type=button id="saveimage">upload
+                    </button>
+                  </form>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+                  <!--Edit Profile Form-->
+                  <center>
+                    <h1>Personal info
+                    </h1>
+                  </center>
+                  <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label">EmailId:
+                      </label>
+                      <!--Company-->
+                      <div class="col-lg-8">
+                        <input class="form-control" value="" type="text" id="editMailId">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label">Password:
+                      </label>
+                      <!--Designation-->
+                      <div class="col-lg-8">
+                        <input class="form-control" value="" type="password" id="editPassword">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label">ConfirmPassword:
+                      </label>
+                      <!--Email-->
+                      <div class="col-lg-8">
+                        <input class="form-control" type="password" id="editConfirm">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">Company:
+                      </label>
+                      <!--Username-->
+                      <div class="col-md-8">
+                        <input class="form-control" type="text" id="editCompany">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">Designation:
+                      </label>
+                      <!--Password-->
+                      <div class="col-md-8">
+                        <input class="form-control"  type="text" id="editDesignatopn">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">
+                      </label>
+                      <div class="col-md-8">
+                        <input class="btn btn-primary" value="Save Changes" type="button" id="editProfile">
+                        <span>
+                        </span>
+                        <input class="btn btn-default" value="Cancel" type="reset">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <div class="pull-right">
+          <span id="develop">Web site developed by 
+            <a class="footer-link" href="http://www.fonantrix.com/">FonantrixSolutions
+            </a>
+          </span>
+          <br/>
+        </div>
+        <strong>Copyright &copy; 2017 .
+        </strong> All rights reserved.
+      </footer>
+      <!-- REQUIRED JS SCRIPTS -->
+      <script src="js/lib/jquery-3.1.1.js">
+      </script>
+      <script src="js/lib/bootstrap.min.js">
+      </script>
+      <script src="js/lib/app.min.js">
+      </script>
+      <script src="js/editProfile.js">
+      </script>
+      <script src="js/onLoadEdit.js">
+      </script>
+      <script src="js/logout.js">
+      </script>
+      <script src="js/GlassDoorResponse.js">
+      </script>
+      <script src="js/viewUserName.js">
+      </script>
+      </body>
+    </html>

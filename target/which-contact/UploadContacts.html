@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Dashboard</title>
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+
+<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/lib/ionicons.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/upload.css">
+<link rel="stylesheet" href="css/spinner.css">
+<link rel="stylesheet" href="css/lib/skin-blue.min.css">
+<script src="https://apis.google.com/js/client.js"
+	type="text/javascript">
+    </script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"
+	type="text/javascript">
+    </script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini"
+	onload="viewUserName();">
+	<div class="wrapper">
+		<header class="main-header">
+			<a href="Dashboard.html.html" class="logo"> <span
+				class="logo-mini"> <b>W </b>C
+			</span> <span class="logo-lg"> <b>Which </b>Contact
+			</span>
+			</a>
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+					role="button"> <span class="sr-only">Toggle navigation </span>
+				</a>
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- Messages: style can be found in dropdown.less-->
+						<!-- User Account Menu -->
+						<li class="dropdown user user-menu"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>
+							<span class="hidden-xs" id="username">
+							</span>
+						</a>
+							<div class="dropdown-content">
+								<a href="EditProfile.html">Edit Profile </a> <a href="# "
+									onclick="logoutuser()">Log Out </a>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+				<!-- search form (Optional) -->
+				<form action="#" method="get" class="sidebar-form">
+					<div class="input-group">
+						<input type="text" name="q" class="form-control"
+							placeholder="Search..."> <span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn"
+								class="btn btn-flat">
+								<i class="fa fa-search"> </i>
+							</button>
+						</span>
+					</div>
+				</form>
+				<!-- /.search form -->
+				<!-- Sidebar Menu -->
+				<ul class="sidebar-menu">
+					<li class="active"><a href="TopCompanies.html"> <i
+							class="fa fa-home"> </i> <span>Home </span>
+					</a></li>
+					<li class="treeview"><a href="UploadContacts.html"> <i class="fa fa-book">
+						</i> <span>Contacts </span> <span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"> </i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li><a href="UploadContacts.html">Upload Contacts </a></li>
+							<li><a href="ShowContacts.html">Show Contacts </a></li>
+							<li><a href="SearchContacts.html">Search Contacts </a></li>
+						</ul></li>
+					
+					<li class="treeview"><a href="Companies.html"> <i
+							class="fa fa-briefcase"> </i> <span>Companies </span> <span
+							class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"> </i>
+						</span>
+					</a>
+						
+					<li class="treeview"><a href="#"> <i class="fa fa-upload">
+						</i> <span>Upload CSV </span> <span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"> </i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<div class="fileinput fileinput-new" data-provides="fileinput">
+								<span class="btn btn-default btn-file"> <span>Choose
+										file </span> <input type="file" accept=".csv" />
+								</span> <span class="fileinput-filename"> </span> <span
+									class="fileinput-new">No file chosen </span>
+							</div>
+						</ul></li>
+				</ul>
+				<!-- /.sidebar-menu -->
+			</section>
+			<!-- /.sidebar -->
+		</aside>
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header"></section>
+			<!-- Main content -->
+			<section class="content">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<h1>Upload Contacts via Email</h1>
+						<form>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<span class="glyphicon glyphicon-envelope"> </span>
+									</div>
+									<input type="email" name="mailId" placeholder="MAIL-ID"
+										class="form-control" id="email" >
+								</div>
+							</div>
+						</form>
+						GOOGLE LOGIN
+						<button type="button" class="btn btn-info" onclick="uploadGoogleContacts();">GET
+							CONTACTS FEED</button>
+						<br> <br> <br>
+					
+						
+					</div>
+				</div>
+				<br>	<div id="status" class="span-style"></div>
+						<div id="loadingProgressG">
+							<div id="loadingProgressG_1" class="loadingProgressG"></div>
+						</div> <br>
+						<form id="csvReader" enctype="multipart/form-data">
+				<h1>Upload Contacts via CSV</h1>
+				Path: <input type="file" id="csvpath" name="file"> <br> <br>
+				UPLOAD CSV
+				<button onclick="uploadCsv();">GET LINKEDIN CSV</button>
+				<span style="text-decoration: underline;"> <span
+					style="color: #ff0000; background-color: #ccffcc; text-decoration: underline;">
+						<strong>UPDATE </strong>
+				</span>
+				</span> <span style="color: #ff0000; background-color: #ccffcc;"> <strong>:
+				</strong>
+				</span> <span style="color: #ff0000; background-color: #ccffcc;">
+					LinkedIn has restricted their open API access, and this no longer
+					works. </span> <br> <br>
+				<p>
+					<a href="https://www.linkedin.com/addressBookExport">Get
+						LinkedIn CSV </a>
+				</p>
+				<br> <br>
+				</form>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<div class="pull-right">
+				<span id="develop">Web site developed by <a
+					class="footer-link" href="http://www.fonantrix.com/">FonantrixSolutions
+				</a>
+				</span> <br />
+			</div>
+			<strong>Copyright &copy; 2017 . </strong> All rights reserved.
+		</footer>
+		<!-- REQUIRED JS SCRIPTS -->
+		<script src="js/lib/jquery-3.1.1.js">
+      </script>
+		<script src="js/lib/bootstrap.min.js">
+      </script>
+		<script src="js/lib/app.min.js">
+      </script>
+		<script src="js/editProfile.js">
+      </script>
+      
+		<script src="js/logout.js">
+      </script>
+		<script src="js/viewUserName.js">
+      </script>
+		<script src="js/uploadContacts.js">
+      </script>
+</body>
+</html>

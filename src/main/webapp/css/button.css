@@ -1,0 +1,42 @@
+ /*
+       Increasing the button size
+    */
+/* #button
+	{
+		width:210px;
+		text align:center;
+	} */
+	/*
+       Changing the Font Style
+    */
+body
+	{
+		font-family:cursive;
+	}
+	
+	#error{
+	color:red;
+	font-family:Italic;
+	}
+	
+	
+	.span-style{
+	color:red;
+    font-family:Italic;
+	}
+	
+	#response{
+       margin-top:10px;
+       color:#fff;
+       font-style: italic;
+       }
+       
+       
+    #prev{
+    float:left;
+    }
+      
+    #next{
+    float:right;
+    }
+  
