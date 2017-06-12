@@ -5,7 +5,7 @@ CREATE DATABASE `which_contact` /*!40100 DEFAULT CHARACTER SET latin1 */;
 DROP TABLE IF EXISTS `which_contact`.`contacts`;
 CREATE TABLE  `which_contact`.`contacts` (
   `contact_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL DEFAULT '',
+  `name` varchar(45) DEFAULT NULL,
   `gid` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `mobile` varchar(45) DEFAULT NULL,
