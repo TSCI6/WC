@@ -50,30 +50,38 @@ public class ContactService {
 	 *         repository
 	 */
 
-	public ResponseDto SaveContacts(ArrayList<Entry> entry, int totalContacts) {
+	public ResponseDto SaveContacts(ArrayList<Entry> entry, int newContacts) {
 
 		ResponseDto responseDto = new ResponseDto();
 		Contacts contacts = new Contacts();
 
 		user_id = UserService.getUser().getId();
-		for (int i = 0; i < totalContacts; i++) // id
+		int continuingContactId=(int)contactRepository.count();
+		
+		int contactsInTable=continuingContactId+newContacts;
+		System.out.println("new Contacts="+newContacts);
+		System.out.println("total contacts after this import contactsInTable="+contactsInTable+"*more is better*");
+		for ( int i=0; i < newContacts; i++) // id
 		{
-			contacts.setContactId(i);
+			contacts.setContactId(continuingContactId);
+			continuingContactId++;
 			contacts.setUserId(user_id);
 
 			try {
 				int z = entry.get(i).getId().getT().toString().lastIndexOf('/') + 1;
-				contacts.setGid(entry.get(i).getId().getT().substring(z)); // gid
+				contacts.setGid(entry.get(i).getId().getT().substring(z)); 					// gid
 			} catch (Exception e) {
 				contacts.setGid(null);
 			}
 
-			try {
-				contacts.setName(entry.get(i).getTitle().getT().toString()); // name
+		try {
+			String name=entry.get(i).getTitle().getT().toString();
+			if(name != null && !name.isEmpty()) {contacts.setName(name);}
+			else contacts.setName(null);
 			} catch (Exception e) {
 				contacts.setName(null);
 			}
-
+			
 			try {
 				contacts.setEmail(entry.get(i).getGdEmail().get(0).getAddress().toString()); // email
 			} catch (Exception e) {
@@ -82,32 +90,30 @@ public class ContactService {
 
 			}
 			try {
-				contacts.setMobile(entry.get(i).getGdPhoneNumber().get(0).getT()); // mobile
+				contacts.setMobile(entry.get(i).getGdPhoneNumber().get(0).getT()); 			// mobile
 			} catch (Exception e) {
 
 				contacts.setMobile(null);
 
 			}
 			try {
-				contacts.setWork(entry.get(i).getGdPhoneNumber().get(1).getT()); // work
+				contacts.setWork(entry.get(i).getGdPhoneNumber().get(1).getT());			 // work
 			} catch (Exception e) {
 
 				contacts.setWork(null);
 
 			}
 			try {
-				contacts.setPhone(entry.get(i).getGdPhoneNumber().get(2).getT()); // phone
+				contacts.setPhone(entry.get(i).getGdPhoneNumber().get(2).getT());			   // phone
 			} catch (Exception e) {
 
 				contacts.setPhone(null);
 
 			}
 			try {
-				contacts.setPostal(entry.get(i).getGdPostalAddress().get(0).getT().toString()); // gid
+				contacts.setPostal(entry.get(i).getGdPostalAddress().get(0).getT().toString()); // postal
 			} catch (Exception e) {
-
 				contacts.setPostal(null);
-
 			}
 			try {
 				contactRepository.save(contacts);
