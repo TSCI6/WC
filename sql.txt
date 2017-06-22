@@ -1,0 +1,94 @@
+CREATE DATABASE `which_contact` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+
+
+DROP TABLE IF EXISTS `which_contact`.`contacts`;
+CREATE TABLE  `which_contact`.`contacts` (
+  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL DEFAULT '',
+  `gid` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `work` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `postal` varchar(200) DEFAULT NULL,
+  `company` varchar(45) DEFAULT NULL,
+  `designation` varchar(75) DEFAULT NULL,
+  `ID` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`contact_id`),
+  KEY `FK_contacts_1` (`ID`),
+  CONSTRAINT `FK_contacts_1` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=545 DEFAULT CHARSET=utf8;
+
+
+
+
+
+DROP TABLE IF EXISTS `which_contact`.`funding_response`;
+CREATE TABLE  `which_contact`.`funding_response` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL DEFAULT '-',
+  `city_name` varchar(150) DEFAULT NULL,
+  `region_name` varchar(150) DEFAULT NULL,
+  `country_code` varchar(50) DEFAULT NULL,
+  `money_raised_currency_code` varchar(100) DEFAULT NULL,
+  `money_raised` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=latin1;
+
+
+
+DROP TABLE IF EXISTS `which_contact`.`organization_data`;
+CREATE TABLE  `which_contact`.`organization_data` (
+  `Company_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Company_name` varchar(200) NOT NULL DEFAULT '',
+  `website` varchar(100) NOT NULL DEFAULT '',
+  `logo` varchar(200) NOT NULL DEFAULT '',
+  PRIMARY KEY (`Company_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2098 DEFAULT CHARSET=latin1;
+
+
+
+DROP TABLE IF EXISTS `which_contact`.`user`;
+CREATE TABLE  `which_contact`.`user` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL DEFAULT '',
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `password` varchar(45) NOT NULL DEFAULT '',
+  `company` varchar(200) DEFAULT NULL,
+  `designation` varchar(200) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+
+
+CREATE TABLE `digitalindia` (
+  `cin` varchar(120) NOT NULL,
+  `name` varchar(245) DEFAULT 'null',
+  `investment` varchar(45) DEFAULT 'nulll',
+  `state` varchar(145) DEFAULT 'null',
+  `businessactivity` varchar(145) DEFAULT 'null',
+  `REGISTEREDADDRESS` varchar(400) DEFAULT 'null',
+  `LASTREVENUE` varchar(45) DEFAULT 'null',
+  PRIMARY KEY (`cin`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `which_contact`.`invitation`;
+CREATE TABLE  `which_contact`.`invitation` (
+  `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ID` int(10) unsigned NOT NULL DEFAULT '0',
+  `Email` varchar(255) NOT NULL DEFAULT '',
+  `Friend_Id` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`contact_id`),
+  KEY `FK_invitation_1` (`ID`),
+  CONSTRAINT `FK_invitation_1` FOREIGN KEY (`ID`) REFERENCES `user` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
+
+

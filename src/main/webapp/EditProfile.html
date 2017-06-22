@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Edit Profile</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<link rel="icon" href="Image\vector_business_people_circle.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+		<!-- Font Awesome CDN -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/lib/ionicons.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/button.css">
+		<link rel="stylesheet" href="css/lib/skin-blue.min.css">
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini" onload="checkLogin();viewUser();viewUserName();">
+	<div class="wrapper">
+		<!--WhichContact Header-->
+			<header class="main-header">
+				<a href="TopCompanies.html" class="logo">
+					<span class="logo-mini">
+						<b>W
+						</b>C
+					</span>
+					<span class="logo-lg">
+						<b>Which
+						</b>Contact
+					</span>
+				</a>
+			<!-- Header Navbar -->
+				<nav class="navbar navbar-static-top" role="navigation">
+					<!-- Sidebar toggle button-->
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+						role="button"> <span class="sr-only">Toggle navigation </span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<!-- User Account Menu -->
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="glyphicon glyphicon-user"></span>
+									<span class="hidden-xs" id="username"></span>
+								</a>
+								<div class="dropdown-content">
+									<a href="EditProfile.html">Edit Profile</a>
+									<a href="# " onclick="logoutuser()">Log Out</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!-- Left side column. contains the logo and sidebar -->
+			<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+				<!-- Sidebar Menu -->
+					<ul class="sidebar-menu">
+						<li class="treeview">
+							<a href="TopCompanies.html">
+								<i class="fa fa-home"></i> 
+								<span>Home</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="UploadContacts.html">
+								<i class="fa fa-upload"></i> 
+								<span>Upload Contacts</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="ShowContacts.html">
+								<i class="fa fa-bars"></i> 
+								<span>Show Contacts</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="SearchContacts.html">
+								<i class="fa fa-search"></i> 
+								<span>Search Contacts</span>
+							</a>
+						</li>   
+						<li class="treeview">
+							<a href="Companies.html">
+								<i class="fa fa-briefcase"></i> 
+								<span>Companies</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="IndianCo.html">
+								<i class="fa fa-user-plus"></i> 
+								<span>Indian Companies</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="Invite.html">
+								<i class="fa fa-user-plus"></i> 
+								<span>Invite</span>
+							</a>
+						</li>
+					</ul>
+				<!-- /.sidebar-menu -->
+				</section>
+			<!-- /.sidebar -->
+			</aside>
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<section class="content-header"></section>
+				<!-- Main content -->
+				<section class="content">
+					<div class="well well-sm">
+						<h1 class="text-center">Edit Your Profile</h1>
+					</div>
+					<div class="row">
+						<form method="post" class="form-horizontal" enctype="multipart/form-data" id="updateForm" onsubmit="return false">
+							<div class="panel panel-info">
+								<div class="panel-body">
+									<div class="col-md-4 col-sm-6 col-xs-12">
+										<!--User Image-->
+										<div class="text-center">
+											<div class="panel panel-success">
+												<div class="panel-body">
+												<!-- User Image -->
+													<img id="img-upload" class="avatar img-circle img-thumbnail"
+														width="304" height="304" alt="User-Icon">
+													<h6>Upload a different photo...</h6>
+													<input type="file" name="file" id="imgInp"
+														class="text-center center-block well well-sm" readonly>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+										<!--Edit Profile Form-->
+										<h1 class="text-center">Personal info</h1>
+										<div class="form-group">
+											<label class="col-lg-3 control-label">EmailId: </label>
+											<!--Company-->
+											<div class="col-lg-8">
+												<input class="form-control" value="" type="text"
+													id="editMailId" name="editMailId">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-lg-3 control-label">Password: </label>
+											<!--Designation-->
+											<div class="col-lg-8">
+												<input class="form-control" value="" type="password"
+													id="editPassword" name="password">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-lg-3 control-label">ConfirmPassword:
+											</label>
+											<!--Email-->
+											<div class="col-lg-8">
+												<input class="form-control" type="password"
+													id="confrm-password" name="password">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Company: </label>
+											<!--Username-->
+											<div class="col-md-8">
+												<input class="form-control" type="text" id="editCompany"
+													name="editCompany">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Designation: </label>
+											<!--Password-->
+											<div class="col-md-8">
+												<input class="form-control" type="text" id="editDesignation"
+													name="editDesignation">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label"> </label>
+											<div class="col-md-8">
+												<input class="btn btn-primary" value="Save Changes"
+													type="button" id="editProfile"> <span> </span> <input
+													class="btn btn-default" value="Cancel" type="reset">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<div class="pull-right">
+					<span id="develop">Web site developed by <a
+						class="footer-link" href="http://www.fonantrix.com/">FonantrixSolutions
+					</a>
+					</span> <br />
+				</div>
+				<strong>Copyright &copy; 2017 . </strong> All rights reserved.
+			</footer>
+			<!-- REQUIRED JS SCRIPTS -->
+			<script src="js/lib/jquery-3.1.1.js">
+	      </script>
+			<script src="js/lib/bootstrap.min.js">
+	      </script>
+			<script src="js/lib/app.min.js">
+	      </script>
+			<script src="js/editProfile.js">
+	      </script>
+			<script src="js/onLoadEdit.js">
+	      </script>
+			<script src="js/logout.js">
+	      </script>
+			<script src="js/GlassDoorResponse.js">
+	      </script>
+			<script src="js/viewUserName.js">
+	      </script>
+	</body>
+</html>

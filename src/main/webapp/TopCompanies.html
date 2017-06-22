@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Top Companies</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!--Logo-->
+		<link rel="icon" href="Image\vector_business_people_circle.png">
+		<!--Bootstrap-Min-->
+		<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+		<!--Font Awesome CDN-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!--CSS-->
+		<link rel="stylesheet" href="css/lib/ionicons.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/button.css">
+		<link rel="stylesheet" href="css/lib/skin-blue.min.css">
+		<link rel="stylesheet" href="css/lib/jquery-datatable.min.css">
+	</head>
+	
+	<body class="hold-transition skin-blue sidebar-mini" onload="checkLogin();viewUserName(); viewFundingData();">
+		<!--Main Body-->
+		<div class="wrapper">
+			<!--WhichContact Header-->
+			<header class="main-header">
+				<a href="TopCompanies.html" class="logo">
+					<span class="logo-mini">
+						<b>W
+						</b>C
+					</span>
+					<span class="logo-lg">
+						<b>Which
+						</b>Contact
+					</span>
+				</a>
+			<!-- Header Navbar -->
+				<nav class="navbar navbar-static-top" role="navigation">
+					<!-- Navbar Right Menu -->
+					<!-- Sidebar toggle button-->
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+						role="button"> <span class="sr-only">Toggle navigation </span>
+					</a>
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<!-- User Account Menu -->
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="glyphicon glyphicon-user"></span>
+									<span class="hidden-xs" id="username"></span>
+								</a>
+								<div class="dropdown-content">
+									<a href="EditProfile.html">Edit Profile</a>
+									<a href="# " onclick="logoutuser()">Log Out</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!-- Left side column. contains the logo and sidebar -->
+			<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+				<!-- Sidebar Menu -->
+					<ul class="sidebar-menu">
+						<li class="active">
+							<a href="TopCompanies.html">
+								<i class="fa fa-home"></i> 
+								<span>Home</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="UploadContacts.html">
+								<i class="fa fa-upload"></i> 
+								<span>Upload Contacts</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="ShowContacts.html">
+								<i class="fa fa-bars"></i> 
+								<span>Show Contacts</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="SearchContacts.html">
+								<i class="fa fa-search"></i> 
+								<span>Search Contacts</span>
+							</a>
+						</li>   
+						<li class="treeview">
+							<a href="Companies.html">
+								<i class="fa fa-briefcase"></i> 
+								<span>Companies</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="IndianCo.html">
+								<i class="fa fa-briefcase"></i> 
+								<span>Indian Companies</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="Invite.html">
+								<i class="fa fa-user-plus"></i> 
+								<span>Invite</span>
+							</a>
+						</li>
+						
+					</ul>
+				<!-- /.sidebar-menu -->
+				</section>
+			<!-- /.sidebar -->
+			</aside>
+			
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<section class="content-header"></section>
+					<!-- Main content -->
+					<section class="content">
+						<!--Top Funded Companies of User-->
+						<div class="well well-sm">TOP FUNDING COMPANIES</div>
+							<table class="table table-bordered table-hover table-striped" id="Response">
+								<thead>
+									<tr class="info">
+										<th>Company_Name
+										</th>
+										<th>City_name
+										</th>
+										<th>region_name
+										</th>
+										<th>country_code
+										 
+										<th>currency_code
+										</th>
+										 <th>money_raised
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+					</section>
+					<!-- /.content -->
+			</div>
+			
+			<!-- /.content-wrapper -->
+			
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<div class="pull-right">
+					<span id="develop">Web site developed by 
+						<a class="footer-link" href="http://www.fonantrix.com/">FonantrixSolutions
+						</a>
+					</span>
+					<br/>
+				</div>
+				<strong>Copyright &copy; 2017 .
+				</strong> All rights reserved.
+			</footer>
+		
+		<!-- REQUIRED JS SCRIPTS -->
+		<script src="js/lib/jquery-1.11.2.js">
+		</script>
+		<script src="js/lib/bootstrap.min.js">
+		</script>
+		<script src="js/lib/app.min.js">
+		</script>
+		<script src="js/editProfile.js">
+		</script>
+		<script src="js/logout.js">
+		</script>
+		<script src="js/GlassDoorResponse.js">
+		</script>
+		 
+		<script src="js/viewUserName.js">
+		</script>
+		  
+		<script src="js/lib/jquery_datatable1.10.15.js">
+		</script>
+		<script src="js/lib/dataTables.bootstrap.min.js">
+		</script>
+		<script src="js/showFundingData.js">
+		</script>  
+	</body>
+</html>

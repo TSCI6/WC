@@ -1,0 +1,31 @@
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+	  background-color: #3c8dbc !important;
+    }
+	
+body {
+	background-color: #ecf0f5 !important;
+}
+
+footer {
+      background-color: #3c8dbc;
+	 padding: 20px;
+     color: #444;
+     border-top: 1px solid #d2d6de;
+    }
+	
+.footer-link {
+	text-decoration: none;
+	color: #ffffff;
+	}
+	
+#logo {
+		height: 50px;
+		width: 50px;
+	}
+	
+#logo {
+		height: 50px;
+		width: 50px;
+	}
