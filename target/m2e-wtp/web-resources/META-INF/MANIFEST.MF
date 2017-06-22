@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: which-contact
 Implementation-Version: 1.0.0-SNAPSHOT
-Built-By: tanme
+Built-By: TS001127
 Implementation-Vendor-Id: com.whichcontact
-Build-Jdk: 1.8.0_121
+Build-Jdk: 1.8.0_31
 Implementation-URL: http://projects.spring.io/spring-boot/which-contac
  t/
 Created-By: Maven Integration for Eclipse
